@@ -3,8 +3,11 @@ class Solution:
         hashmap = defaultdict(list)
 
         for words in strs:
-            key = "".join(sorted(words))
+            count = [0]*26
+            for char in words:
+                count[ord(char) - ord('a')] += 1
+            
+            key = tuple(count)
             hashmap[key].append(words)
 
         return list(hashmap.values()) 
-        
