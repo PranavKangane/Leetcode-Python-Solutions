@@ -2,14 +2,15 @@ class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         hashmap = defaultdict(list)
 
-        for i, v in enumerate(nums):
+        for index, v in enumerate(nums):
             if v == val:
-                hashmap[v].append(i)  # This line needs to be indented
-                
-        for idx in reversed(hashmap[val]):
-                del nums[idx]
+                hashmap[v].append(index)
+
+        for index in reversed(hashmap[val]):
+            nums.pop(index)
 
         return len(nums)
+ 
 
 
     
